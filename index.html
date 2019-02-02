@@ -1,25 +1,7 @@
 <html>
   <head>
     <style>
-      body {
-          width:50%;
-          margin:10% auto;
-          background:#e6e6e6;
-      }
-      #chart_wrap {
-          border:1px solid gray;
-          position: relative;
-          padding-bottom: 100%;
-          height: 0;
-          overflow:hidden;
-      }
-      #chart {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width:100%;
-          height:100%;
-      }
+      
     </style>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -47,16 +29,13 @@
           bars: 'vertical' // Required for Material Bar Charts.
         };
 
-        var chart = new google.charts.Bar(document.getElementById('chart'));
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
   </head>
   <body>
-    <div id="chart_wrap"><div id="chart"></div></div>
-    <p id="canvas_size"></p>
-    
-    <!-- <div id="barchart_material" style="width: 900px; height: 500px;"></div> -->
+    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
