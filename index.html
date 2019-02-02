@@ -1,41 +1,48 @@
 <html>
   <head>
     <style>
-      
     </style>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Day', 'Flexibility', 'Memory', 'Emotion'],
-          ['1', 100, 40, 20],
-          ['2', 117, 46, 25],
-          ['3', 66, 112, 30],
-          ['4', 103, 54, 35],
-          ['5', 117, 46, 25],
-          ['6', 66, 112, 30],
-          ['7', 103, 54, 35],
-        ]);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Day', 'Flexibility', 'Memory', 'Emotion'],
+                ['1', 100, 40, 20],
+                ['2', 117, 46, 25],
+                ['3', 66, 112, 30],
+                ['4', 103, 54, 35],
+                ['5', 117, 46, 25],
+                ['6', 66, 112, 30],
+                ['7', 103, 54, 35],
+            ]);
 
-        var options = {
-          chart: {
-            title: 'How Are You Doing?',
-            subtitle: 'Your Memory Perfomance in the Past 7 Days',
-          },
-          bars: 'vertical' // Required for Material Bar Charts.
-        };
+            var options = {
+                legend: {position: 'left'},
+                chart: {
+                    title: 'How Are You Doing?',
+                    subtitle: 'Your Memory Performance in the Past 7 Days',
+                },
+                bars: 'vertical' // Required for Material Bar Charts.
+            };
 
-        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+            var chart = new google.charts.Bar(document.getElementById('chart_div'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+        // REFLOW
+        $(window).resize(function(){
+            drawChart();
+        });
     </script>
   </head>
   <body>
-    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+  <div id="chart">
+      <div id="chart_div"></div>
+  </div>
   </body>
 </html>
